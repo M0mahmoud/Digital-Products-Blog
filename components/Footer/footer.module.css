@@ -1,0 +1,27 @@
+.container {
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .social {
+    margin-top: 10px;
+  }
+}

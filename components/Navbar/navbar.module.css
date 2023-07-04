@@ -1,0 +1,97 @@
+.container {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.logout {
+  padding: 8px 15px;
+  border: none;
+  background-color: #53c28b;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menuButton {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+@media (max-width: 767px) {
+  .links {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transform: translateY(-100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-weight: bold;
+    -webkit-transition: opacity 0.3s ease, transform 0.3s ease;
+    -moz-transition: opacity 0.3s ease, transform 0.3s ease;
+    -ms-transition: opacity 0.3s ease, transform 0.3s ease;
+    -o-transition: opacity 0.3s ease, transform 0.3s ease;
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+  }
+
+  .menuButton {
+    display: block;
+    padding: 8px 15px;
+    border: none;
+    background-color: #53c28b;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    position: relative;
+    z-index: 15;
+  }
+
+  .open {
+    transform: translateY(100%);
+    z-index: 15;
+  }
+
+  .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
