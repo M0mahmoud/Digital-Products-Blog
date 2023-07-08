@@ -1,2 +1,46 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 .container {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.imageContainer {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+.image {
+  object-fit: cover;
+}
+
+.content {
+  padding: 15px 5px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 16px;
+  color: #999;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
