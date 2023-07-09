@@ -1,17 +1,59 @@
 "use client";
 
+import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React, { useState } from "react";
 import DarkMode from "../DarkMode/DarkMode";
-import { links } from "./NavLinks";
 import style from "./navbar.module.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { data: session, status } = useSession();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const NavLinks = () => (
+    // With Issue
+    <>
+      <Link
+        href="/portfolio"
+        onClick={() => setIsMenuOpen((prev) => !prev)}
+        className={style.link}
+      >
+        Portfolio
+      </Link>
+      <Link
+        href="/about"
+        onClick={() => setIsMenuOpen((prev) => !prev)}
+        className={style.link}
+      >
+        About
+      </Link>
+      <Link
+        href="/blog"
+        onClick={() => setIsMenuOpen((prev) => !prev)}
+        className={style.link}
+      >
+        Blog
+      </Link>
+      <Link
+        href="/contact"
+        onClick={() => setIsMenuOpen((prev) => !prev)}
+        className={style.link}
+      >
+        Contact
+      </Link>
+      <Link
+        href="/dashboard"
+        onClick={() => setIsMenuOpen((prev) => !prev)}
+        className={style.link}
+      >
+        Dashboard
+      </Link>
+    </>
+  );
 
   return (
     <>
@@ -22,19 +64,16 @@ const Navbar = () => {
         <div
           className={isMenuOpen ? `${style.links} ${style.open}` : style.links}
         >
-          {links.map((link) => (
-            <Link
-              key={link.id}
-              href={link.url}
-              className={style.link}
-              onClick={() => setIsMenuOpen((prev) => !prev)}
-            >
-              {link.title}
-            </Link>
-          ))}
-          <button className={style.logout} onClick={() => {}}>
-            Logout
-          </button>
+          <NavLinks />
+          {status === "authenticated" ? (
+            <button className={style.logout} onClick={() => signOut()}>
+              Logout
+            </button>
+          ) : (
+            <button className={style.logout} onClick={() => signIn()}>
+              Login
+            </button>
+          )}
           <DarkMode />
         </div>
         <button className={style.menuButton} onClick={handleMenuToggle}>

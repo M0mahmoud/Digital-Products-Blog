@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
+import Providders from "@/components/provider/Provider";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -15,13 +16,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} className={inter.className}>
-        <ThemeProvider>
-          <div className="container">
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <Providders>
+          <ThemeProvider>
+            <div className="container">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </Providders>
       </body>
     </html>
   );
