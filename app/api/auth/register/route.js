@@ -3,7 +3,7 @@ import connect from "@/utils/db";
 import bcrypt from "bcrypt";
 import { NextResponse } from "next/server";
 
-const Register = async (req, res) => {
+export const POST = async (req, res) => {
   const { name, email, password } = await req.json();
 
   await connect();
@@ -25,10 +25,12 @@ const Register = async (req, res) => {
 
   try {
     await newUser.save();
-    return new NextResponse(JSON.stringify(newUser), { status: 201 });
+    return new NextResponse("User has been created", {
+      status: 201,
+    });
   } catch (err) {
-    return new NextResponse(err, { status: 500 });
+    return new NextResponse(err, {
+      status: 500,
+    });
   }
 };
-
-export { Register as GET, Register as POST };

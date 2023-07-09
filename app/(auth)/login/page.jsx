@@ -13,7 +13,7 @@ const Page = () => {
 
   useEffect(() => {
     status === "authenticated" ? router.push("/") : null;
-  }, [status]);
+  }, [status, router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

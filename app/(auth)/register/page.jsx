@@ -30,6 +30,7 @@ const Page = () => {
         }),
       })
         .then((res) => {
+          console.log("res:", res);
           res.status === 201 && router.push("/");
           res.status === 401 ? setError(res.statusText) : null;
         })

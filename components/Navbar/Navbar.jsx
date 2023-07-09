@@ -9,6 +9,8 @@ import style from "./navbar.module.css";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data: session, status } = useSession();
+  console.log("status:", status);
+  console.log("session:", session);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -69,11 +71,7 @@ const Navbar = () => {
             <button className={style.logout} onClick={() => signOut()}>
               Logout
             </button>
-          ) : (
-            <button className={style.logout} onClick={() => signIn()}>
-              Login
-            </button>
-          )}
+          ) : null}
           <DarkMode />
         </div>
         <button className={style.menuButton} onClick={handleMenuToggle}>
