@@ -89,6 +89,7 @@ const Page = () => {
             </div>
           ))
         )}
+        {data?.length === 0 && <h1>No Posts</h1>}
       </div>
 
       <form className={styles.new} onSubmit={handleSubmit}>

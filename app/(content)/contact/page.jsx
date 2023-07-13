@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 const Page = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Let's Keep in Touch</h1>
+      <h1 className={styles.title}>Let&#39;s Keep in Touch</h1>
       <div className={styles.content}>
         <form className={styles.form}>
           <input type="text" placeholder="Your Name" className={styles.input} />

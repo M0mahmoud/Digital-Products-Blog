@@ -1,21 +1,14 @@
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import React from "react";
 import styles from "./page.module.css";
 
-async function getData(postId) {
-  const response = await fetch(`http://127.0.0.1:3000/api/posts/${postId}`, {
-    cache: "no-store",
-  });
-  if (!response.ok) {
-    return notFound();
-  }
-  const data = await response.json();
-  return data;
+async function getPostBlog(postId) {
+  const res = await fetch(`http://127.0.0.1:3000/api/posts/${postId}`);
+  return res.json();
 }
 
-const Page = async ({ params }) => {
-  const post = await getData(params.id);
+export default async function PageBlog({ params: { id } }) {
+  const post = await getPostBlog(id);
 
   return (
     <div className={styles.container}>
@@ -25,8 +18,8 @@ const Page = async ({ params }) => {
           <p className={styles.desc}>{post.desc}</p>
           <div className={styles.author}>
             <Image
-              src={post.img}
-              alt=""
+              src={post.userImage}
+              alt="User Image"
               width={40}
               height={40}
               className={styles.avatar}
@@ -48,6 +41,4 @@ const Page = async ({ params }) => {
       </div>
     </div>
   );
-};
-
-export default Page;
+}

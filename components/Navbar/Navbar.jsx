@@ -9,47 +9,45 @@ import style from "./navbar.module.css";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { data: session, status } = useSession();
-  console.log("status:", status);
-  console.log("session:", session);
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const NavLinks = () => (
-    // With Issue
+    // With Issue : while click in deskitop it open model and close it fast
     <>
       <Link
         href="/portfolio"
-        onClick={() => setIsMenuOpen((prev) => !prev)}
+        // onClick={() => setIsMenuOpen((prev) => !prev)}
         className={style.link}
       >
         Portfolio
       </Link>
       <Link
         href="/about"
-        onClick={() => setIsMenuOpen((prev) => !prev)}
+        // onClick={() => setIsMenuOpen((prev) => !prev)}
         className={style.link}
       >
         About
       </Link>
       <Link
         href="/blog"
-        onClick={() => setIsMenuOpen((prev) => !prev)}
+        // onClick={() => setIsMenuOpen((prev) => !prev)}
         className={style.link}
       >
         Blog
       </Link>
       <Link
         href="/contact"
-        onClick={() => setIsMenuOpen((prev) => !prev)}
+        // onClick={() => setIsMenuOpen((prev) => !prev)}
         className={style.link}
       >
         Contact
       </Link>
       <Link
         href="/dashboard"
-        onClick={() => setIsMenuOpen((prev) => !prev)}
+        // onClick={() => setIsMenuOpen((prev) => !prev)}
         className={style.link}
       >
         Dashboard
