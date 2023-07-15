@@ -13,10 +13,11 @@
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.9",
     "mongoose": "^7.3.2",
-    "next": "13.4.9",
+    "next": "13.4.3",
     "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sharp": "^0.32.3",
     "swr": "^2.2.0"
   }
 }

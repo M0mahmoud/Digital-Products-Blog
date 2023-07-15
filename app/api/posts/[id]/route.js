@@ -9,9 +9,7 @@ export const GET = async (request, { params }) => {
     const post = await Post.findById(id);
     return new NextResponse(JSON.stringify(post), { status: 200 });
   } catch (err) {
-    return new NextResponse(JSON.stringify({ err: "Post Not Found!..." }), {
-      status: 500,
-    });
+    return new NextResponse("Database Error", { status: 500 });
   }
 };
 

@@ -2,14 +2,28 @@ import Image from "next/image";
 import React from "react";
 import styles from "./page.module.css";
 
-async function getPostBlog(postId) {
-  const res = await fetch(`http://127.0.0.1:3000/api/posts/${postId}`);
+async function getData(id) {
+  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    return notFound();
+  }
+
   return res.json();
 }
 
-export default async function PageBlog({ params: { id } }) {
-  const post = await getPostBlog(id);
+export async function generateMetadata({ params }) {
+  const post = await getData(params.id);
+  return {
+    title: post.title,
+    description: post.desc,
+  };
+}
 
+const BlogPost = async ({ params }) => {
+  const post = await getData(params.id);
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -41,4 +55,5 @@ export default async function PageBlog({ params: { id } }) {
       </div>
     </div>
   );
-}
+};
+export default BlogPost;
